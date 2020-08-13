@@ -35,16 +35,30 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
+    // old guard
+
+    // 'guards' => [
+    //     'web' => [
+    //         'driver' => 'session',
+    //         'provider' => 'users',
+    //     ],
+
+    //     'api' => [
+    //         'driver' => 'token',
+    //         'provider' => 'users',
+    //         'hash' => false,
+    //     ],
+    // ],
+
+
+    'guards' => [       
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'users' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
-
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
         ],
     ],
 
@@ -65,11 +79,18 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+    'providers' => [           
+            'admins' => [
+                'driver' => 'eloquent',
+                'model' => App\Admin::class,
+            ],
+            'writers' => [
+                'driver' => 'eloquent',
+                'model' => App\User::class,
+            ],
         ],
+
+
 
         // 'users' => [
         //     'driver' => 'database',
