@@ -16,3 +16,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Member routes
+Route::get('/member', 'MemberController@student')->name('member');
+Route::post('/store', 'MemberController@store');
+
+Route::get('/profile', 'ProfileController@profile')->name('profile');
+Route::post('/mbrprofile', 'ProfileController@mbrprofile');
+
+
+// Profile routes
+Route::get('/profile', 'ProfileController@course')->name('profile');
+Route::post('/save', 'ProfileController@save');
+
+
+//Admin routes
+Route::get('profiles_request', 'AdminController@requestProfiles')->name('profiles_request');
+Route::get('members_request', 'AdminController@requestMembers')->name('members_request');

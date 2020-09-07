@@ -3,11 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
-use Illuminate\Http\Request;
-use Auth;
 
 class LoginController extends Controller
 {
@@ -22,97 +18,24 @@ class LoginController extends Controller
     |
     */
 
-        public function __construct()
-        {
-            $this->middleware('guest')->except('logout');
-            $this->middleware('guest:admin')->except('logout');
-            $this->middleware('guest:user')->except('logout');
-        }
+    use AuthenticatesUsers;
 
-    //     // define the login for admins
-    //     public function showAdminLoginForm()
-    //   {
-    //     return view('auth.login', ['url' => 'admin']);
-    //   }
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+   
+    protected $redirectTo = '/home';
+    //  protected $redirectTo = '/home'; //forner reidrect after login to change to form that collects users that wants summarizes
 
-    // public function adminLogin(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'email'   => 'required|email',
-    //         'password' => 'required|min:6'
-    //     ]);
-
-    //     if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-    //         return redirect()->intended('/admin');
-    //     }
-    //     return back()->withInput($request->only('email', 'remember'));
-    // }
-
-    //      // define the login for users
-    // public function showUserLoginForm()
-    // {
-    //     return view('auth.login', ['url' => 'user']);
-    // }
-
-    // public function userLogin(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'email'   => 'required|email',
-    //         'password' => 'required|min:6'
-    //     ]);
-
-    //     if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-    //         return redirect()->intended('/user');
-    //     }
-    //     return back()->withInput($request->only('email', 'remember'));
-    // }
-
-
-    public function showAdminLoginForm()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        return view('auth.login', ['url' => 'admin']);
+        $this->middleware('guest')->except('logout');
     }
-
-
-    public function adminLogin(Request $request)
-    {
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
-        ]);
-
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/admin');
-        }
-        return back()->withInput($request->only('email', 'remember'));
-    }
-  
-
-    public function showUserLoginForm()
-    {
-        return view('auth.login', ['url' => 'user']);
-    }
-
-    public function userLogin(Request $request)
-    {
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
-        ]);
-
-        if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/user');
-        }
-        return back()->withInput($request->only('email', 'remember'));
-    }
-
-    public function showLoginForm()    
-     {        
-          return view('auth.login');  
-           }
-       
 }
