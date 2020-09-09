@@ -37,3 +37,6 @@ Route::post('/save', 'ProfileController@save');
 //Admin routes
 Route::get('profiles_request', 'AdminController@requestProfiles')->name('profiles_request');
 Route::get('members_request', 'AdminController@requestMembers')->name('members_request');
+
+
+Route::get('registerMember', 'AdminController@regMember')->name('registerMember');
