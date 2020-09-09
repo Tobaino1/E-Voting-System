@@ -29,4 +29,10 @@ class AdminController extends Controller
         $accrediations = Accrediation::all();
         return view ('Accrediations_request', ['accrediations' => $accrediations]); 
       }
+
+      public function regMember ()
+    {
+        return view ('registerMember');
+    }
+
 }
