@@ -40,3 +40,11 @@ Route::get('members_request', 'AdminController@requestMembers')->name('members_r
 
 
 Route::get('registerMember', 'AdminController@regMember')->name('registerMember');
+
+
+//Api
+Route::get('candidates', 'ApiController@getAllCandidates');
+Route::get('candidates/{id}', 'ApiController@getCandidate');
+Route::post('candidates', 'ApiController@createCandidate');
+Route::put('candidates/{id}', 'ApiController@updateCandidate');
+Route::delete('candidates/{id}','ApiController@deleteCandidate');
