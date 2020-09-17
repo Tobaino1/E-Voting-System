@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Member routes
-Route::get('/member', 'MemberController@student')->name('member');
+Route::get('/member', 'MemberController@member')->name('member');
 Route::post('/store', 'MemberController@store');
 
 Route::get('/profile', 'ProfileController@profile')->name('profile');
