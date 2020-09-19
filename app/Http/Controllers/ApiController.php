@@ -40,7 +40,7 @@ class ApiController extends Controller
           return response($candidate, 200);
         } else {
           return response()->json([
-            "message" => "Candidate not found"
+            "message" => "Candidate record doesn't exist"
           ], 404);
         }
     }
@@ -63,7 +63,7 @@ class ApiController extends Controller
           ], 200);
           } else {
           return response()->json([
-              "message" => "Candidate not found"
+            "message" => "Candidate record doesn't exist"
           ], 404);
           
       }
