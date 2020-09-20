@@ -1,0 +1,3 @@
+<!-- {{ $email->content }} -->
+
+{{ $email ?? '' }}
