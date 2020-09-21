@@ -21,7 +21,7 @@ class AdminController extends Controller
     public function requestMembers()
       { 
         $members = Member::all();
-        return view ('member_request', ['members' => $members]); 
+        return view ('members_request', ['members' => $members]); 
       }
 
       public function requestAccrediations()
