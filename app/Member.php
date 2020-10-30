@@ -11,7 +11,6 @@ class Member extends Model
         'phone_no',
         'dob',
         'gender',
-        'passport_name',
         'email',
         'address',
         'state',
