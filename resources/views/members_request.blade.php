@@ -17,7 +17,7 @@
 <th>Phone No</th>
 <th>DOB</th>
 <th>Gender</th>
-<th>Passport</th>
+<!-- <th>Passport</th> -->
 <th>Email</th>
 <th>Address</th>
 <th>State</th>
@@ -34,10 +34,7 @@
 <td>{{ $member->phone_no }}</td>
 <td>{{ $member->dob}}</td>
 <td>{{ $member->gender }}</td>
-<td><img src="{{ asset( Storage::url($member->passport_name) ) }}" /></td>
-
-     <!-- <td><img src='{{ url('/storage/app/passports/'.$member->passport_name) }}'></td> -->
-
+<!-- <td><img src="{{ asset( Storage::url($member->passport_name) ) }}" /></td> -->
 
 <td>{{ $member->email }}</td>
 <td>{{ $member->address }}</td>
@@ -45,7 +42,6 @@
 <td>{{ $member->lgalcda }}</td>
 <td>{{ $member->party_reg_no }}</td>
 <td>{{ $member->acc_no }}</td>
-
 </tr>
 
 @endforeach
