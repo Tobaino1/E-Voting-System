@@ -8,7 +8,7 @@
                 <div class="card-header" align="center" style="color: red">{{ __('Register and Accredit a member') }}</div>
 
                 <div class="card-body">
-                        <form method="POST" action="{{url('/store')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{url('/save')}}" enctype="multipart/form-data">
                             @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
